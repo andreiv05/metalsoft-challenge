@@ -132,3 +132,49 @@ Response:
     "id": 3
 }
 ```
+
+### Invoice:
+### Create: 
+Request:
+```json
+{
+    "jsonrpc": "2.0",
+    "method": "invoice_add",
+    "params": {
+        "customerId": 1,
+        "sum": 12.34
+    },
+    "id": 3
+}
+```
+Response:
+```json
+{
+    "jsonrpc": "2.0",
+    "result": {
+        "id": 1,
+        "customerId": 1,
+        "sum": 12.34,
+        "updatedAt": "2020-11-17T18:28:42.941Z",
+        "createdAt": "2020-11-17T18:28:42.941Z"
+    },
+    "id": 3
+}
+```
+### List:
+Request:
+```json
+{
+    "jsonrpc": "2.0",
+    "result": [
+        {
+            "id": 1,
+            "sum": 12.34,
+            "createdAt": "2020-11-17T18:28:42.941Z",
+            "updatedAt": "2020-11-17T18:28:42.941Z",
+            "customerId": 1
+        }
+    ],
+    "id": 3
+}
+```
