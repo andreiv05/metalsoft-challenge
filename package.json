@@ -1,0 +1,28 @@
+{
+  "name": "metalsoft-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "debug": "LOG_LEVEL=debug nodemon src/app.js --inspect | ./node_modules/bunyan/bin/bunyan -o short"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreiv05/metalsoft-challenge.git"
+  },
+  "author": "Andrei Vasile",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreiv05/metalsoft-challenge/issues"
+  },
+  "homepage": "https://github.com/andreiv05/metalsoft-challenge#readme",
+  "dependencies": {
+    "bunyan": "^1.8.14",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "sequelize": "^6.3.5",
+    "sqlite3": "^5.0.0"
+  }
+}
