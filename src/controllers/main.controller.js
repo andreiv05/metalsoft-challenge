@@ -31,12 +31,18 @@ const process = async (req, res, next) => {
         break;
 
       case 'invoice_list':
+        result = await invoiceService.findAll();
         break;
       case 'invoice_add':
+        result = await invoiceService.createInvoice(params);
         break;
+      case 'invoice_find':
+        result = await invoiceService.findOne(params);
       case 'invoice_update':
+        result = await invoiceService.update(params);
         break;
       case 'invoice_delete':
+        result = await invoiceService.destroy(params);
         break;
     }
   } catch (err) {
