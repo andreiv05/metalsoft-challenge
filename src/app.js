@@ -7,7 +7,7 @@ const init = async () => {
   
   try {
     await database.authenticate();
-    await database.sync({ force: true });
+    await database.sync({});
     logger.info('Database connection established');
   } catch (err) {
     logger.error(err);

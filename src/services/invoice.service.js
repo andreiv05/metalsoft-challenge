@@ -4,8 +4,8 @@ const findAll = async () => {
   return invoiceModel.findAll();
 }
 
-const findOne = async () => {
-  return invoiceModel.findOne();
+const findOne = async (invoiceDto) => {
+  return invoiceModel.findOne({ where: invoiceDto});
 }
 
 const createInvoice = async (invoiceDto) => {
@@ -15,9 +15,9 @@ const createInvoice = async (invoiceDto) => {
 const update = async (invoiceDto) => {
   const {
     id,
-    ...customerProperties
+    ...invoiceProperties
   } = invoiceDto;
-  return invoiceModel.update(customerProperties, { where: { id } });
+  return invoiceModel.update(invoiceProperties, { where: { id } });
 };
 
 const destroy = async (invoiceDto) => {

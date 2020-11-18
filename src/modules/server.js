@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bunyanMiddleware = require('bunyan-middleware');
+const middlewares = require('../middlewares/cache');
 
 const logger = require('../modules/logger');
 const mainController = require('../controllers/main.controller');
@@ -11,10 +12,8 @@ app.use(bunyanMiddleware(
 ));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.get('/ping', (req, res) => {
-  res.send({ pong: true });
-});
+app.use(middlewares.requestCacheMiddleware);
 app.post('/query', mainController);
+app.use(middlewares.postRequestCacheSave);
 
 module.exports = app;

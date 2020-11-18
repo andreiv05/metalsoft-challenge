@@ -38,6 +38,7 @@ const process = async (req, res, next) => {
         break;
       case 'invoice_find':
         result = await invoiceService.findOne(params);
+        break;
       case 'invoice_update':
         result = await invoiceService.update(params);
         break;
@@ -49,14 +50,15 @@ const process = async (req, res, next) => {
     req.log.error(err);
     result = "Server error";
   }
-  
-
-  res.status(200);
-  res.json({
+  const responseObject = {
     jsonrpc: '2.0',
     result,
     id
-  });
+  }
+
+  res.locals.responseObject = responseObject
+  res.status(200);
+  res.json(responseObject);
   return next();
 };
 

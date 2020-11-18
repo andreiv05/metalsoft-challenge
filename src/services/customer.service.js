@@ -4,8 +4,8 @@ const findAll = async () => {
   return customerModel.findAll();
 }
 
-const findOne = async () => {
-  return customerModel.findOne();
+const findOne = async (customerDto) => {
+  return customerModel.findOne({ where: customerDto });
 }
 
 const createCustomer = async (customerDto) => {
